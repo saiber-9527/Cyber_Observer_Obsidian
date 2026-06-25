@@ -18,6 +18,19 @@ Transformer 的突破：
 
 ## 核心组件
 
+### Transformer 整体架构
+
+```mermaid
+flowchart TB
+    INPUT[\"输入: 那只猫在追自己的尾巴\"] --> EMB[Embedding层]
+    EMB --> POS[位置编码]
+    POS --> ATT[多头自注意力]
+    ATT --> ADD1[残差连接+归一化]
+    ADD1 --> FFN[前馈神经网络]
+    FFN --> ADD2[残差连接+归一化]
+    ADD2 --> OUTPUT[输出: 每个词的新表示]
+```
+
 ### 自注意力（Self-Attention）
 
 ```
@@ -31,9 +44,9 @@ Transformer 的突破：
 **直观理解：** 在理解某个词时，"注意"到句子中其他哪些词更重要。
 
 ```
-"那只猫在追自己的尾巴"
+\"那只猫在追自己的尾巴\"
              ↓ 自注意力
-"自己" → 注意力集中在 "猫" 上
+\"自己\" → 注意力集中在 \"猫\" 上
 ```
 
 ### 多头注意力（Multi-Head Attention）

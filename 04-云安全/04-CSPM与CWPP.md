@@ -51,6 +51,35 @@
 
 ## CSPM vs CWPP
 
+```mermaid
+flowchart TB
+    subgraph CSPM
+        direction TB
+        CP1["检查对象存储权限<br/>是否公开"]
+        CP2["检查安全组<br/>是否开放高危端口"]
+        CP3["检查IAM策略<br/>是否权限过大"]
+    end
+    
+    subgraph CWPP
+        direction TB
+        CW1["主机的系统调用<br/>是否异常"]
+        CW2["容器进程<br/>是否可疑"]
+        CW3["运行时漏洞<br/>是否被利用"]
+    end
+    
+    CP1 & CP2 & CP3 --> ALERT1["📊 配置告警<br/>(API层面)"]
+    CW1 & CW2 & CW3 --> ALERT2["🚨 运行时告警<br/>(Agent层面)"]
+    
+    ALERT1 --> SOC[SOC 安全运营]
+    ALERT2 --> SOC
+    
+    style CSPM fill:#e8f5e9
+    style CWPP fill:#fff3e0
+    style SOC fill:#e3f2fd
+```
+
+## CSPM vs CWPP
+
 | 对比 | CSPM | CWPP |
 |------|------|------|
 | 关注点 | 配置漂移 | 运行时攻击 |

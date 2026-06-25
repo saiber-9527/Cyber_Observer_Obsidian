@@ -64,6 +64,32 @@ Step 5: 等待人工确认（半自动）
 
 ---
 
+## SIEM + SOAR 协作流程
+
+```mermaid
+flowchart TB
+    LOG["📡 日志源
+防火墙/主机/应用/云"] --> SIEM
+    subgraph SIEM[SIEM 发现威胁]
+        COLLECT[日志采集] --> PARSE[解析归一化]
+        PARSE --> RULES[关联分析规则]
+        RULES --> ALERT["⚠️ 生成告警"]
+    end
+    subgraph SOAR[SOAR 自动响应]
+        ALERT --> TRIAGE[告警分类定级]
+        TRIAGE --> PLAYBOOK["📋 执行剧本
+1.查威胁情报
+2.查主机信息
+3.自动阻断IP
+4.通知负责人"]
+        PLAYBOOK --> RESULT["✅ 处置结果
+阻断/隔离/通知"]
+    end
+    RESULT --> REVIEW["👤 安全分析师审核"]
+    REVIEW --> IMPROVE["🔄 优化规则和剧本"]
+    IMPROVE -.-> RULES
+```
+
 ## SIEM + SOAR = 互补
 
 | 维度 | SIEM | SOAR |
