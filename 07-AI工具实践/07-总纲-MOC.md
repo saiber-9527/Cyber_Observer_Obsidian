@@ -9,7 +9,7 @@
 | 概念 | 关键词 | 链接 |
 |------|--------|------|
 | Prompt Engineering | 提示设计、Few-Shot、CoT | [[07-Prompt工程]] |
-| AI 开发框架 | LangChain、LlamaIndex | [[07-AI开发框架]] |
+| AI 开发框架 | LangChain、LlamaIndex | [[07-RAG应用开发|AI 开发框架]] |
 | 本地模型部署 | Ollama、vLLM、llama.cpp | [[07-本地模型部署]] |
 | RAG 应用 | 检索+生成、向量数据库 | [[07-RAG应用开发]] |
 | AI Agent | 工具调用、自主执行 | [[07-AI Agent]] |
