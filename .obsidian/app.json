@@ -1,0 +1,10 @@
+{
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "assets",
+  "newFileLocation": "current",
+  "promptDelete": true,
+  "showUnsupportedFiles": true,
+  "spellcheck": false,
+  "wordCount": false,
+  "showFrontmatter": true
+}
